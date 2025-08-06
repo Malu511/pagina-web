@@ -1,1 +1,58 @@
 
+/* Estilo geral do corpo da página */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f8ff; /* cor suave de fundo */
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Cabeçalho da ferramenta */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: #0066cc;
+}
+
+/* Área principal de estudo */
+.main {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Botões interativos */
+button {
+  background-color: #0066cc;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  margin: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+/* Seção de perguntas ou conteúdo */
+.content {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+/* Estilo para respostas ou feedbacks */
+.feedback {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #006600;
+}
