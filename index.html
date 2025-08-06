@@ -1,32 +1,81 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Flashcard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ferramenta Interativa de Estudo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <main>
-        <section id="container">
-            <!-- <article class="cartao">
-                <div class="cartao__conteudo">
-                    <h3>Programação</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        <p>O que é JavaScript?</p>
-                    </div>
-                    <div class="cartao__conteudo__resposta">
-                        <p>O JavaScript é uma linguagem de programação</p>
-                    </div>
-                </div>
-            </article> -->
-        </section>
-    </main>
-    <footer>
-        <p>Projeto desenvolvido pela Alura, sem fins lucrativos</p>
-    </footer>
-    <script src="app.js"></script>
-    <script src="perguntas.js"></script>
+    <h1>Ferramenta Interativa de Estudo</h1>
+    <div class="question" data-answer="Paris">
+        <p>Qual é a capital da França?</p>
+        <input type="text" placeholder="Sua resposta" />
+    </div>
+    <div class="question" data-answer="Vermelho">
+        <p>Qual é a cor do sangue?</p>
+        <input type="text" placeholder="Sua resposta" />
+    </div>
+    <div class="question" data-answer="Mercúrio">
+        <p>Qual é o planeta mais próximo do Sol?</p>
+        <input type="text" placeholder="Sua resposta" />
+    </div>
+    <button onclick="verificarRespostas()">Verificar Respostas</button>
+    <div class="result" id="resultado"></div>
+
+    <script>
+        function verificarRespostas() {
+            const perguntas = document.querySelectorAll('.question');
+            let acertos = 0;
+            perguntas.forEach((pergunta) => {
+                const respostaCorreta = pergunta.getAttribute('data-answer').toLowerCase();
+                const respostaUsuario = pergunta.querySelector('input').value.trim().toLowerCase();
+                if (respostaUsuario === respostaCorreta) {
+                    acertos++;
+                }
+            });
+            const totalPerguntas = perguntas.length;
+            document.getElementById('resultado').textContent = `Você acertou ${acertos} de ${totalPerguntas} perguntas.`;
+        }
+    </script>
 </body>
 </html>
